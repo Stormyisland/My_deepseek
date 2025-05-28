@@ -12,9 +12,18 @@ class SimpleAIChatbot:
   a simplified AI chabot simalar to Deepseek using Gpt -2 architecture.
   """
 
-def __init__(self, model_name: str = "gpt2" , device : str = None):
-  """
-  initilize chatbot with a pre=trained model.
+  def __init__(self, model_name: str = "gpt2", device : str = None):
+    """
+    initilize chatbot with a pre=trained model.
+  
+    Args:
+        model_name: Name of the pre_trained model (default: "gpt2")
+        device: Device to run the nodel on (e.g., "cpu" or "cuda")
 
-  Args:
-  model_name: Name of the pre_trained model.
+    Example:
+        >>> chatbot = SimpleAIChatbot()
+        >>> chatbot = SimpleAIChatbot("gpt-medium", "cuda:0"
+        """
+    
+
+  
