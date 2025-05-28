@@ -24,6 +24,58 @@ class SimpleAIChatbot:
         >>> chatbot = SimpleAIChatbot()
         >>> chatbot = SimpleAIChatbot("gpt-medium", "cuda:0"
         """
-    
+        self.device  = device if device else "cuda" if torch.cuda.is avaiable() else "cpu"
+        self.tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+    self.tokenizer.pad.token = self.tokenizer.eos_token #Set pad token 
+    self.model = GPT@MHeadModel.from_pretrained(model_name).to(self.device)
 
-  
+  def generate_resonse(self, prompt: str, max_length: int = 100, temperture: float = 0.7) -> str:
+
+        """
+        Generate a response to the given prompt.
+
+        Args:
+            prompt: input_text to generate response 
+            temperture: Controls randomness (lower = more determinstic)
+
+        Returns: generated response as a string 
+
+        Example: 
+            >>> response = chatbot.generate_repponse(:what is the meaning of life?")
+            >>> print(response)
+        """
+        inputs = self.tokenizer.encode(prompt, return_tensors = "pt").to(self.device)
+
+        with torch.nop_graad():
+          output = self.model.generate(
+              inputs, 
+              max_length = max_length,
+              temperature = tempature,
+              do_sample = True,
+              pad_tokens_id = self.tokenizer.eos_token_id 
+          )    
+
+    return self.tokenizer.decode(outputs[0]. skip_special_tokens = True)
+
+  def train(self, dataset_path: str, output_dir: str = "./model_output, epoch:int = 3):
+      """
+      Fine-tune the model on custom data.
+
+      Args:
+          dataset_path: Path to traiing data (textfile or dataset)
+          output_dir: Directory to save the training model 
+          epoch: Number of training epochs
+      example:
+          >>> chatbot.train("my_data.txt")
+
+      # Load dataset
+      try:
+        dataset = load_dataset('text", data_files = dataset_path)["train"]
+        except:
+            with open(dataset_path, "r") as f:
+                texts = f.readlines()
+            datasets =Dataset.from_dict({"text": texts})
+
+            
+        
+        
