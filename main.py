@@ -22,7 +22,7 @@ class SimpleAIChatbot:
 
     Example:
         >>> chatbot = SimpleAIChatbot()
-        >>> chatbot = SimpleAIChatbot("gpt-medium", "cuda:0"
+        >>> chatbot = SimpleAIChatbot("gpt-medium", "cuda:0")
         """
         self.device  = device if device else "cuda" if torch.cuda.is avaiable() else "cpu"
         self.tokenizer = GPT2Tokenizer.from_pretrained(model_name)
@@ -75,6 +75,8 @@ class SimpleAIChatbot:
             with open(dataset_path, "r") as f:
                 texts = f.readlines()
             datasets =Dataset.from_dict({"text": texts})
+  
+            
 
             
         
