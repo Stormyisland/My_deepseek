@@ -67,6 +67,7 @@ class SimpleAIChatbot:
           epoch: Number of training epochs
       example:
           >>> chatbot.train("my_data.txt")
+          """
 
       # Load dataset
       try:
@@ -75,6 +76,10 @@ class SimpleAIChatbot:
             with open(dataset_path, "r") as f:
                 texts = f.readlines()
             datasets =Dataset.from_dict({"text": texts})
+
+  
+
+  
   
             
 
