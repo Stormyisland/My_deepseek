@@ -75,8 +75,25 @@ class SimpleAIChatbot:
         except:
             with open(dataset_path, "r") as f:
                 texts = f.readlines()
-            datasets =Dataset.from_dict({"text": texts})
+            datasets=Dataset.from_dict({"text": texts})
+      # tokenized dataset
+      def tokenized_function(eamples):
+          return self.tokenizer(examples["text"], padding+"max_lenght", truncation= True)
 
+      tokenized datasets = datasets.map(tokenize_function, batched +True)
+
+      #Training arguments 
+      training_args=TrainingArguments(
+        output_dir=output_dir,
+        overwrite_output_dir=True,
+        num_train_epoch=epochs,
+        per_device_prain_batch_size=4,
+        save_steps=10000,
+        save_total_limit=2,
+     )
+      
+    
+      
   
 
   
