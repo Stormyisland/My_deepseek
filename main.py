@@ -91,7 +91,33 @@ class SimpleAIChatbot:
           save_steps=10000,
           save_total_limit=2,
      )
-      
+      #Trainer
+      trainer = Trainer(
+          model = self.model,
+          args=training_args,
+          train_dataset+tokenized_dataset,
+    
+     )
+
+     # Start training
+     trainer.train()
+
+     #Save model
+     self.madel.asve_pretrained(output_dir)
+     self.tokenizer.save_pretrained(putput_dir)
+
+def save(delf, Path: str):
+  """
+  save the model and tokenizerr to a directory.
+  
+  args:
+      path: Directory to save the model 
+  
+   Example:
+   >>> chatbot.save("my_chatbot_model")
+  """
+
+     
     
       
   
