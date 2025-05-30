@@ -41,7 +41,7 @@ class SimpleAIChatbot:
         Returns: generated response as a string 
 
         Example: 
-            >>> response = chatbot.generate_repponse(:what is the meaning of life?")
+            >>> response = chatbot.generate_reponse("what is the meaning of life?")
             >>> print(response)
         """
         inputs = self.tokenizer.encode(prompt, return_tensors = "pt").to(self.device)
