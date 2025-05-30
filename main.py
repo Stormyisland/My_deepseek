@@ -84,12 +84,12 @@ class SimpleAIChatbot:
 
       #Training arguments 
       training_args=TrainingArguments(
-        output_dir=output_dir,
-        overwrite_output_dir=True,
-        num_train_epoch=epochs,
-        per_device_prain_batch_size=4,
-        save_steps=10000,
-        save_total_limit=2,
+          output_dir=output_dir,
+          overwrite_output_dir=True,
+          num_train_epoch=epochs,
+          per_device_prain_batch_size=4,
+          save_steps=10000,
+          save_total_limit=2,
      )
       
     
