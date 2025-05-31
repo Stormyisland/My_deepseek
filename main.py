@@ -131,13 +131,11 @@ def save(delf, Path: str):
       Return: instance of SimpleAIChatbot 
 
       Example: 
-          >>> chatbot =simpleAICHAtbot.load("my_chatbot_model")
+          >>> chatbot =simpleAIChatbot.load("my_chatbot_model")
       """
-      device = device if device device else "cudes" if torch.cuda.is_available()else "cpu"
-      model =GPT@LMHeadModel.from_pretrained(path).to(device)
-      
-    
-      
+      device = device if device device else "cuda" if torch.cuda.is_available()else "cpu"
+      model =GPT2LMHeadModel.from_pretrained(path).to(device)
+      tokenizer = GPT2Tokenizer.from_pretrained(path)     
   
 
   
