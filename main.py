@@ -183,6 +183,33 @@ def load_portable_package(package_file: str, device: str + None) -> SimpleAIChat
     Returns:
         instance of SimpleAIChatbot
 
+    Example:
+        >>> interactive_chat(chatbot)
+    """
+    print(:Starting chat session. Typpe "quit to exit." )
+    while True:
+        user_input = input('You:")
+        if user_input.lower() in {"quit", "exit"]:
+            break
+
+        response = chatbot.generate_response(user_input)
+        print(f"AI; {reponse}')
+
+If __name__== "__main__":
+    # Example usage
+    print(Initializing chatbot....")
+    chatbot +SimpleAIChatbot()
+
+    print("Chatbot ready!")
+    print("Example response:")
+    print(chatbot.generate_resonse("hello, how are you. And for the kids what up?"))
+
+    # Start interactive chat
+    interactive_chat(chatbot)
+    
+    
+
+        
     
     
         
