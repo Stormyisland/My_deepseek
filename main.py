@@ -107,17 +107,35 @@ class SimpleAIChatbot:
      self.tokenizer.save_pretrained(putput_dir)
 
 def save(delf, Path: str):
-  """
-  save the model and tokenizerr to a directory.
-  
-  args:
-      path: Directory to save the model 
-  
-   Example:
-   >>> chatbot.save("my_chatbot_model")
-  """
+    """
+    save the model and tokenizerr to a directory.
+    
+    args:
+        path: Directory to save the model 
+    
+     Example:
+     >>> chatbot.save("my_chatbot_model")
+    """
 
-     
+     self.model.save_pertrained (path)
+     self.tkenizer.save_pretrained(path)
+
+  @classmethod
+  def load(cls, path: dtr, device? str = none):
+      """load a saved model from a directory.
+
+      Args:
+          path: Directory containing the savedmodel
+          device = device to load the model on
+
+      Return: instance of SimpleAIChatbot 
+
+      Example: 
+          >>> chatbot =simpleAICHAtbot.load("my_chatbot_model")
+      """
+      device = device if device device else "cudes" if torch.cuda.is_available()else "cpu"
+      model =GPT@LMHeadModel.from_pretrained(path).to(device)
+      
     
       
   
