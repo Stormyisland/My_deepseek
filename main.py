@@ -135,7 +135,31 @@ def save(delf, Path: str):
       """
       device = device if device device else "cuda" if torch.cuda.is_available()else "cpu"
       model =GPT2LMHeadModel.from_pretrained(path).to(device)
-      tokenizer = GPT2Tokenizer.from_pretrained(path)     
+      tokenizer = GPT2Tokenizer.from_pretrained(path)
+
+      chatbot = cls.__new__(cls)
+      chatbot.model = model
+      chatbot.tokenizer 
+      chatbot device = device 
+
+      return chatbot
+
+def create_portable _package(model_dir: str, output_file :str = chatbot_package.pkl"):
+    """ 
+    Create a portable package of the chatbot that can be shared.
+
+    Args:
+        model directorry containing the saved model 
+        output_file: path to save the portable package
+
+    Example:
+        >>> creat_portable_package "my_chatbot_model", portable_chatbot.pkl"
+    """
+    # Verify the modle exist
+    require_files = ["config.json", "pytorch_model.bin", "speacial_tokens_map.json",
+                    
+        
+
   
 
   
