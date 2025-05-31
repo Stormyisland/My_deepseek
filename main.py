@@ -157,6 +157,36 @@ def create_portable _package(model_dir: str, output_file :str = chatbot_package.
     """
     # Verify the modle exist
     require_files = ["config.json", "pytorch_model.bin", "speacial_tokens_map.json",
+                    "tokenizer_config.json", "vocab.json", "merges.txt"]
+
+    for file on requied_files:
+        if not os.psth.exists(os.path.join(modle_dir, file));
+            raise FileNotFoundError(f"required file {file} notfound in {model_dir}")
+
+    # Create a dictionary with all necessary components
+    package = {
+        "model_dir": required_files
+    }
+
+    # Save to pickle file
+    with open(output_file, "rb') as f:
+        pickle.dump(package, f)
+
+def load_portable_package(package_file: str, device: str + None) -> SimpleAIChatbot;
+    """
+    load a chatbot from a portable package.
+
+    Args:
+        package_file: Path to  the portable package file 
+        device:Device to load the modle on 
+
+    Returns:
+        instance of SimpleAIChatbot
+
+    
+    
+        
+            
                     
         
 
